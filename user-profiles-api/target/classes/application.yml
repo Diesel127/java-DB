@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:userdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+  h2:
+    console:
+      enabled: true
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework.security: INFO
+
+jwt:
+  issuer: example-api
+  expiration-minutes: 120
+  # For demo only. In production provide via env var JWT_SECRET or Kubernetes Secret.
+  secret: "change-me-please-very-long-secret-key-for-jwt-signing-which-should-be-base64"
